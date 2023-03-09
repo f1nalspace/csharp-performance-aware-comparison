@@ -49,13 +49,14 @@ This github project shows how to translate a real-world problem, that starts ver
 - To normalize the audio samples for each stream, we need the minimum and maximum sample value
 - Typical audio streams has a length from ~3 up-to ~10 minutes
 - Each audio stream has N samples for 2 audio channels with 48 KHz, each sample is 16-bit signed integer
-- Each audio sample has a fixed state that indicates if it is good or bad, so we have to only take valid samples into account
-- A bad sample has a value of the highest possible number, for 16-bit signed integer this is +32767
+- Each audio sample has a fixed state that indicates if it is good or corrupt, so we have to only take good samples into account
+- A corrupt sample has a value of the highest possible number, for 16-bit signed integer this is +32767
+- Most audio streams does not have any corrupt audio samples, so we have to take this into account
 
 So the worst case is we have 48000 Hz/s * 600 Seconds * 2 Channels = 57.600.000 samples per stream (total of 115.200.000 bytes)
 So the best case is we have 48000 Hz/s * 180 Seconds * 2 Channels = 17.280.000 samples per stream (total of 34.560.000 bytes)
 
 ### Making the problem harder
 
-- Each audio stream has N samples with at least one audio channel, up-to 8 audio channels, each sample is either 16-bit, 24-bit or 32-bit signed integer or 32-bit floating point
+- Each audio stream has N samples with up-to 8 audio channels, each sample is either 16-bit, 24-bit or 32-bit signed integer or 32-bit floating point
 - Increase the length the of audio streams, by supporting audio pod-casts with a length up-to 1 hour
