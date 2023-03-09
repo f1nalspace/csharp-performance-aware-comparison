@@ -52,6 +52,7 @@ This github project shows how to translate a real-world problem, that starts ver
 - Each audio sample has a fixed state that indicates if it is good or corrupt, so we have to only take good samples into account
 - A corrupt sample has a value of the highest possible number, for 16-bit signed integer this is +32767
 - Most audio streams does not have any corrupt audio samples, so we have to take this into account
+- The user has to wait until all audio streams has to be normalized
 
 So the worst case is we have 48000 Hz/s * 600 Seconds * 2 Channels = 57.600.000 samples per stream (total of 115.200.000 bytes)
 
