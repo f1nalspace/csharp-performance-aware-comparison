@@ -54,6 +54,7 @@ This github project shows how to translate a real-world problem, that starts ver
 - Most audio streams does not have any corrupt audio samples, so we have to take this into account
 
 So the worst case is we have 48000 Hz/s * 600 Seconds * 2 Channels = 57.600.000 samples per stream (total of 115.200.000 bytes)
+
 So the best case is we have 48000 Hz/s * 180 Seconds * 2 Channels = 17.280.000 samples per stream (total of 34.560.000 bytes)
 
 ### Making the problem harder
